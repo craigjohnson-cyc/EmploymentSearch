@@ -1,0 +1,22 @@
+﻿@page "/Company/List"
+@inject ICompanyService CompanyService
+
+@rendermode InteractiveAuto
+
+<PageTitle>Company List</PageTitle>
+
+<h1>Companies Applied To:
+ 
+
+@* button for Add Client *@
+<a href="/Company/Add" type="button" class="btn btn-primary float-end" >Add Company</a>
+</h1>
+
+@* <CompanyListTableComponent></CompanyListTableComponent> *@
+<CompanyListGridComponent>  </CompanyListGridComponent>
+
+@code 
+{
+    
+ 
+}

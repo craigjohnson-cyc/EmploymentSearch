@@ -1,0 +1,11 @@
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\bin\Debug\net8.0\EmploymentSearch_DataModel.deps.json
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\bin\Debug\net8.0\EmploymentSearch_DataModel.dll
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\bin\Debug\net8.0\EmploymentSearch_DataModel.pdb
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\EmploymentSearch_DataModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\EmploymentSearch_DataModel.AssemblyInfoInputs.cache
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\EmploymentSearch_DataModel.AssemblyInfo.cs
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\EmploymentSearch_DataModel.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\EmploymentSearch_DataModel.dll
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\refint\EmploymentSearch_DataModel.dll
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\EmploymentSearch_DataModel.pdb
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\ref\EmploymentSearch_DataModel.dll

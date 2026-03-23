@@ -1,0 +1,96 @@
+﻿@* <h3>CompanyListGridComponent</h3> *@
+@inject ICompanyService CompanyService
+
+
+
+@if (companies2 == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+@*     @foreach (var company in companies2)
+    { *@
+        <Grid TItem="Company"
+          AllowFiltering="true"
+          AllowPaging="true"
+          AllowSorting="true"
+          AllowSelection="true"
+          Class="table table-hover table-bordered table-striped"
+          Data="companies2"
+          HeaderRowCssClass="bg-primary text-white border-bottom-0"
+          PageSize="@pageSize"
+          PageSizeSelectorVisible="true"
+          PageSizeSelectorItems="@(new int[] { 5,10,20 })"
+          RowKeySelector="(comp) => comp.company_key"
+          SelectedItemsChanged="OnSelectedItemsChanged"
+          Responsive="true"
+          AllowRowClick="true"
+          
+          FirstLinkIcon="IconName.ChevronDoubleLeft"
+          PreviousLinkIcon="IconName.ChevronLeft"
+          NextLinkIcon="IconName.ChevronRight"
+          LastLinkIcon="IconName.ChevronDoubleRight">
+
+            <GridColumns>
+                <GridColumn TItem="Company" HeaderText="Id" PropertyName="CompId" SortKeySelector="item => item.company_key">
+                    @context.company_key
+               </GridColumn>
+
+                <GridColumn TItem="Company" HeaderText="Company Name" PropertyName="CompName" SortKeySelector="item => item.companyName">
+                    @context.companyName
+                </GridColumn>
+
+                <GridColumn TItem="Company" HeaderText="Web Page" PropertyName="CompWebPage">
+                    @if (!string.IsNullOrEmpty(context.link))
+                    {
+                        <a href="@context.link" target="_blank" class="table-link"> Website</a>
+                    }
+                    else
+                    {
+                        <span>No Website</span>
+                    }
+                </GridColumn>
+            </GridColumns>
+
+        </Grid>
+
+    @* } *@
+}
+
+
+@code {
+    // List<Company> companies;
+    private IEnumerable<Company> companies2;
+    private HashSet<Company> selectedCompanies = new();
+    int currentPageNumber = 1;
+    int pageSize = 15;
+
+    private async Task<GridDataProviderResult<Company>> CompanyDataProvider(GridDataProviderRequest<Company> request)
+    {
+        if (companies2 is null) // pull companies only one time for client-side filtering, sorting, and paging
+            companies2 = await CompanyService.GetAllCompanies(); // call a service or an API to pull the companies
+
+        return await Task.FromResult(request.ApplyTo(companies2));
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        companies2 = await CompanyService.GetAllCompanies();
+        await base.OnInitializedAsync();
+    }
+
+    private async Task OnRowClick()
+    {
+        // int pageSize = 10;
+        // companies.Clear();
+        // currentPageNumber = newPageNumber;
+        // companies = await CompanyService.GetCompanies(newPageNumber, pageSize);
+        //        <Pagination ActivePageNumber="@newPageNumber"/>
+    }
+    private Task OnSelectedItemsChanged(HashSet<Company> companies2)
+    {
+        selectedCompanies = companies2 is not null && companies2.Any() ? companies2 : new();
+        return Task.CompletedTask;
+    }
+}

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmploymentSearch_DataModel", "EmploymentSearch_DataModel\EmploymentSearch_DataModel.csproj", "{07360EC9-8BC3-4502-B411-AC5587438566}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07360EC9-8BC3-4502-B411-AC5587438566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07360EC9-8BC3-4502-B411-AC5587438566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07360EC9-8BC3-4502-B411-AC5587438566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07360EC9-8BC3-4502-B411-AC5587438566}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {739E8F2F-85C0-492B-94DA-FFED540B2279}
+	EndGlobalSection
+EndGlobal

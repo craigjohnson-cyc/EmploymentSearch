@@ -1,0 +1,51 @@
+﻿@* <h3>CompanyListTableItemComponent</h3> *@
+@inject NavigationManager NavManager
+@inject ICompanyService CompanyService
+
+@if(Company is not null)
+{
+    
+    <tr>
+        <td class="no-show">@Company.company_key.ToString().Trim()</td>
+        <td>@Company.companyName.Trim()</td>
+        <td class="no-show">@Company.phone.Trim()</td>
+        <td>
+            @if(!string.IsNullOrEmpty(Company.link))
+            {
+                <a href="@Company.link" target="_blank" class="table-link"> Website</a>
+            }
+            else
+            {
+                <span>No Website</span>
+            }
+        </td>
+        <td class="no-show">@Company.address1.Trim()</td>
+        <td class="no-show">@Company.address2.Trim()</td>
+        <td class="no-show">@Company.city.Trim()</td>
+        <td class="no-show">@Company.state.Trim()</td>
+        <td class="no-show">@Company.zip.Trim()</td>
+        <td>
+            <a href="/Company/Display/@Company.company_key" class="btn btn-link">Select</a>
+            <a href="/Company/Edit/@Company.company_key" class="btn btn-link">Edit</a>
+            <a class="btn btn-link" @onclick="(() => DeleteCompany(Company.company_key))">Delete</a>
+        </td>
+    </tr>
+}
+
+@code {
+    [Parameter]
+    public Company? Company { get; set; }
+
+    private async Task DeleteCompany(int CompanyKey)
+    {
+        if (CompanyKey > 0)
+        {
+            HttpResponseMessage response = await CompanyService.DeleteCompany(CompanyKey);
+
+            if (response.IsSuccessStatusCode)
+            {
+                NavManager.NavigateTo("/Company/List");  // refresh the screen
+            }
+        }
+    }
+}
