@@ -624,11 +624,14 @@ C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSear
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\bin\Debug\net8.0\EmploymentSearch_DataModel.pdb
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\EmploymentSearch.Client.csproj.AssemblyReference.cache
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\EmploymentSearch.Client.Properties.Resources.resources
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\EmploymentSearch.Client.csproj.GenerateResource.cache
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\EmploymentSearch.Client.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\EmploymentSearch.Client.AssemblyInfoInputs.cache
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\EmploymentSearch.Client.AssemblyInfo.cs
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\EmploymentSearch.Client.csproj.CoreCompileInputs.cache
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\EmploymentSearch.Client.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\EmploymentSearch.Client.sourcelink.json
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\webcil\BlazorBootstrap.wasm
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Authorization.wasm
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.wasm
@@ -1032,8 +1035,8 @@ C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSear
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\compressed\h8rz7yal6c-tptq2av103.gz
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\compressed\920yym5opi-lfu7j35m59.gz
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\compressed\bwm1q0m3wa-oyz0vx2fzb.gz
-C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\compressed\qqk17jgpou-77yduqzopq.gz
-C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\compressed\iezrsn84tb-64awnzcr6c.gz
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\compressed\qqk17jgpou-k7k2dm712m.gz
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\compressed\iezrsn84tb-lhn2iibxmr.gz
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\staticwebassets.development.json
@@ -1044,8 +1047,6 @@ C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSear
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\refint\EmploymentSearch.Client.dll
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\EmploymentSearch.Client.pdb
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\ref\EmploymentSearch.Client.dll
-C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\EmploymentSearch.Client.Properties.Resources.resources
-C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\EmploymentSearch.Client.csproj.GenerateResource.cache
-C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\compressed\vkq9j2lgsl-tx309qmyk4.gz
-C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\compressed\imivf8sppc-d1l5qt00dr.gz
-C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\compressed\azaoaweav3-zutuetbafb.gz
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\compressed\vkq9j2lgsl-6kl9cropv2.gz
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\compressed\imivf8sppc-jdv0io6q6j.gz
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch.Client\obj\Debug\net8.0\compressed\azaoaweav3-6u7x7oc3gm.gz

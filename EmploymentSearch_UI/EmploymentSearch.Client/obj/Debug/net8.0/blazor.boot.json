@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "EmploymentSearch.Client",
   "resources": {
-    "hash": "sha256-KxFyp3LTYlrGlOwbEOGc+BHkpVdMZUHif9p4fEgeK+U=",
+    "hash": "sha256-i7qi4fxkkL867gLYlGYamnqwjY1zFbethF2HzQ+i3cM=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-NljIbpK/1KCj0+knpX8U77Rbl5kTtfFIuFjK7AuczEw="
     },
@@ -210,12 +210,12 @@
       "mscorlib.wasm": "sha256-oV7k+vcNqj7FS6Y/lMtdhVlq3myDH55/wVxmO4QPrw4=",
       "netstandard.wasm": "sha256-XMXMB0WW//vbNNgQiFAqYo7IJ2C4yQX590aoAbOtTB4=",
       "System.Private.CoreLib.wasm": "sha256-tuhzUgbFn7ji3yhMSxyBLHAps9h0RsFnq+8pUoizHiw=",
-      "EmploymentSearch_DataModel.wasm": "sha256-nVtq8pWl+4SQFke53xq8KMyGuxHhfXMmTMWfqtYBysI=",
-      "EmploymentSearch.Client.wasm": "sha256-8URvCUqP75NoglLWh6ZLDdhmuNFmbFdOUQpcKiawGFA="
+      "EmploymentSearch_DataModel.wasm": "sha256-0Me6PQPht2dtLZdzSdogxYaM75CWDZcUJ1j4bx07sHo=",
+      "EmploymentSearch.Client.wasm": "sha256-Zm2ul5bH4ZIiD2QvvytIzzsicXgAU7KEIG2+kXnHdgs="
     },
     "pdb": {
-      "EmploymentSearch_DataModel.pdb": "sha256-Nl6UwrKBZ9NuqkgoGb1/8E1o1lyrJMdN0uDMxoveTnI=",
-      "EmploymentSearch.Client.pdb": "sha256-wedr1gqDSkAM645SGcm0pU8rrHG6L1qq3uA5lBE7Sy0="
+      "EmploymentSearch_DataModel.pdb": "sha256-aa3skKYjdrI/Kgy6Y8p8VJaRV1G2XpZ+dnnwE3PbYm8=",
+      "EmploymentSearch.Client.pdb": "sha256-Kc9j6WKyka2/M37zlOBXcg6yrFKDTmgpBJfuDPl/Cz8="
     }
   },
   "cacheBootResources": true,

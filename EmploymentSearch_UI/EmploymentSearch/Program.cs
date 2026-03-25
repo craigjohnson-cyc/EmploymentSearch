@@ -9,6 +9,8 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
+builder.Services.AddBlazorBootstrap();
+
 builder.Services.AddScoped(sp =>
     new HttpClient
     {

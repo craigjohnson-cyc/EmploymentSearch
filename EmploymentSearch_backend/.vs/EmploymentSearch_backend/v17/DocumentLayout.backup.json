@@ -29,11 +29,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CompanyController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_backend\\EmploymentSearch_backend\\Controllers\\CompanyController.cs",
+              "RelativeDocumentMoniker": "EmploymentSearch_backend\\Controllers\\CompanyController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_backend\\EmploymentSearch_backend\\Controllers\\CompanyController.cs*",
+              "RelativeToolTip": "EmploymentSearch_backend\\Controllers\\CompanyController.cs*",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAkwCcAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T22:39:54.82Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -58,19 +71,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-27T00:24:23.744Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CompanyController.cs",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_backend\\EmploymentSearch_backend\\Controllers\\CompanyController.cs",
-              "RelativeDocumentMoniker": "EmploymentSearch_backend\\Controllers\\CompanyController.cs",
-              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_backend\\EmploymentSearch_backend\\Controllers\\CompanyController.cs",
-              "RelativeToolTip": "EmploymentSearch_backend\\Controllers\\CompanyController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAwwBcAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-26T22:39:54.82Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",

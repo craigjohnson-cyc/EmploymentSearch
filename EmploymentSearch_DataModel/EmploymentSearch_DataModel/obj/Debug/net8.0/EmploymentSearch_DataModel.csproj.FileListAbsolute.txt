@@ -5,6 +5,7 @@ C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\Employm
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\EmploymentSearch_DataModel.AssemblyInfoInputs.cache
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\EmploymentSearch_DataModel.AssemblyInfo.cs
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\EmploymentSearch_DataModel.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\EmploymentSearch_DataModel.sourcelink.json
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\EmploymentSearch_DataModel.dll
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\refint\EmploymentSearch_DataModel.dll
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_DataModel\EmploymentSearch_DataModel\obj\Debug\net8.0\EmploymentSearch_DataModel.pdb

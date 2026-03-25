@@ -49,6 +49,7 @@ C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSear
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\EmploymentSearch.AssemblyInfo.cs
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\EmploymentSearch.csproj.CoreCompileInputs.cache
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\EmploymentSearch.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\EmploymentSearch.sourcelink.json
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json

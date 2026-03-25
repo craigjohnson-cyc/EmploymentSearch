@@ -33,7 +33,7 @@ namespace EmploymentSearch.Client.Services
         {
             if (id >= 0)
             {
-                Company company = await _httpClient.GetFromJsonAsync<Company>("Companies/" + id.ToString().Trim());
+                Company company = await _httpClient.GetFromJsonAsync<Company>("Company/" + id.ToString().Trim());
 
                 if (company == null)
                 {

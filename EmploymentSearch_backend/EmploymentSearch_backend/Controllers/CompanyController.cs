@@ -39,7 +39,9 @@ namespace APIs.Controllers
         [Route("{id:int}")]
         public IActionResult GetCompanyById(int id)
         {
-            Company foundCompany = _context.Company.Find(id);
+            Company foundCompany = new Company();
+
+            if (id >= 0) { foundCompany = _context.Company.Find(id); }
 
             if (foundCompany == null)
                 return NotFound();
