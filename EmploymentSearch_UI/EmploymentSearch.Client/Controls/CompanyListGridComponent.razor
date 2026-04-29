@@ -26,12 +26,7 @@ else
             OnRowClick="OnRowClick"
             Responsive="true"
             AllowRowClick="true"
-            EmptyText="No Records to Display"
-          
-            FirstLinkIcon="IconName.ChevronDoubleLeft"
-            PreviousLinkIcon="IconName.ChevronLeft"
-            NextLinkIcon="IconName.ChevronRight"
-            LastLinkIcon="IconName.ChevronDoubleRight">
+            EmptyText="No Records to Display">
 
             <GridColumns>
                 <GridColumn TItem="Company" HeaderText="Id" PropertyName="CompId" SortKeySelector="item => item.company_key" IsVisible="false">
@@ -108,24 +103,16 @@ else
         return await Task.FromResult(request.ApplyTo(companies2));
     }
 
-    protected override async Task OnInitializedAsync()
-    {
-        companies2 = await CompanyService.GetAllCompanies();
-        await base.OnInitializedAsync();
-    }
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     companies2 = await CompanyService.GetAllCompanies();
+    //     await base.OnInitializedAsync();
+    // }
 
     private async Task OnRowClick(GridRowEventArgs<Company> args)
     {
         int companyId = args.Item.company_key;
         NavigationManager.NavigateTo($"/Company/Display/{companyId}");
-
-        // ModalOption opt = new ModalOption
-        // {
-        //     Type = ModalType.Primary,
-        //     Title = "Event: Row Click",
-        //     Message = $"Id: {args.Item.company_key}, Name: {args.Item.companyName}"
-        // };
-        // await ModalService.ShowAsync(opt);
     }
 
     private Task OnSelectedItemsChanged(HashSet<Company> companies2)

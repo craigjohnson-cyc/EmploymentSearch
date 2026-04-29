@@ -1,69 +1,21 @@
-﻿@page "/Company/Display/{Id:int}"
-@inject ICompanyService CompanyService
+﻿@page "/Company/Display/{id:int}"
 @rendermode InteractiveAuto
 
-<h3>Company Display</h3>
+@* <h3>Company Display</h3> *@
 
-@if (company == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <div class="mb-3">Company Name</div>
-    <div class="mb-3">
-        <TextInput @bind-Value="@company.companyName" />
-    </div>
+<CompanyDisplayComponent id="@id">  </CompanyDisplayComponent>
+<PositionListGridComponent id="@id"> </PositionListGridComponent>
 
-    <div class="mb-3">Website</div>
-    <div class="mb-3">
-        <TextInput @bind-Value="@company.link" />
-    </div>
 
-    <div class="mb-3">Phone</div>
-    <div class="mb-3">
-        <TextInput @bind-Value="@company.phone" />
-    </div>
-
-    <div class="mb-3">Address</div>
-    <div class="mb-3">
-        <TextInput @bind-Value="@company.address1" />
-    </div>
-    <div class="mb-3">
-        <TextInput @bind-Value="@company.address2" />
-    </div>
-    <div class="mb-3">
-        <TextInput @bind-Value="@company.city" />
-    </div>
-    <div class="mb-3">
-        <TextInput @bind-Value="@company.state" />
-    </div>
-    <div class="mb-3">
-        <TextInput @bind-Value="@company.zip" />
-    </div>
-
-    <div class="row mb-3">
-        <div class="col-2">
-            <label class="col-form-label">Employment Type</label>
-        </div>
-        <div class="col-6">
-            <InputText @bind-Value="company.zip" class="form-control"></InputText>
-        </div>
-    </div>
-}
 
 @code {
     [Parameter]
-    public int Id { get; set; }
+    public int id { get; set; }
 
-    [SupplyParameterFromForm]
-    private Company? company { get; set; }
-
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
-        company = await CompanyService.GetCompany(this.Id);
-        await base.OnInitializedAsync();
+        int companyID = id;
+        StateHasChanged();
+
     }
-
-
 }

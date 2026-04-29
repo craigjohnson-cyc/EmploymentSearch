@@ -417,7 +417,7 @@
         }
       }
     },
-    "/api/Position/{id}": {
+    "/api/Position/GetByPositionId": {
       "get": {
         "tags": [
           "Position"
@@ -425,8 +425,7 @@
         "parameters": [
           {
             "name": "id",
-            "in": "path",
-            "required": true,
+            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -438,7 +437,30 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/Position/GetByCompanyId": {
+      "get": {
+        "tags": [
+          "Position"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Position/{id}": {
       "delete": {
         "tags": [
           "Position"

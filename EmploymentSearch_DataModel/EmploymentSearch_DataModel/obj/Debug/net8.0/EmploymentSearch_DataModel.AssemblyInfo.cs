@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EmploymentSearch_DataModel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+717f31916b52fc77f16786838089c30151b1012d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65de7071a20c00f2f63175501b4fa0ab190d3b24")]
 [assembly: System.Reflection.AssemblyProductAttribute("EmploymentSearch_DataModel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EmploymentSearch_DataModel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

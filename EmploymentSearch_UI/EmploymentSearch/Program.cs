@@ -18,6 +18,7 @@ builder.Services.AddScoped(sp =>
     });
 
 builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<IPositionService, PositionService>();
 
 
 var app = builder.Build();

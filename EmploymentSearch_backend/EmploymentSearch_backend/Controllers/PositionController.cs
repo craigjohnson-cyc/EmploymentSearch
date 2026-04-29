@@ -25,16 +25,30 @@ namespace APIs.Controllers
             return Ok(_context.Position.ToList());
         }
 
-        [HttpGet]
-        [Route("{id:int}")]
+        [HttpGet("GetByPositionId")]
+        //[Route("{id:int}")]
         public IActionResult GetPositionById(int id)
         {
-            Position foundPosition = _context.Position.Find(id);
+            JobPosition foundPosition = _context.Position.Find(id);
 
             if (foundPosition == null)
                 return NotFound();
 
             return Ok(foundPosition);
+
+        }
+
+        [HttpGet("GetByCompanyId")]
+        //[Route("{key:alpha}")]
+        public IActionResult GetAllPositionsForCompany(string companyId)
+        {
+            int compId= Convert.ToInt32(companyId);
+            List<JobPosition> foundPositions = _context.Position.Where(i => i.company_key == compId).ToList();
+
+            if (!foundPositions.Any())
+                return NotFound();
+
+            return Ok(foundPositions);
 
         }
 
@@ -45,7 +59,7 @@ namespace APIs.Controllers
         {
             int newPositionKey = _context.Position.Max(c => c.position_key);
             newPositionKey += 1;
-            var newPosition = new Position()
+            var newPosition = new JobPosition()
             {
                 position_key = newPositionKey,
                 company_key = addPositionDto.company_key,
@@ -79,7 +93,8 @@ namespace APIs.Controllers
                 statusDate = newPosition.statusDate
             };
 
-            return CreatedAtAction(nameof(GetPositionById), new { id = PositionDto.position_key }, PositionDto); //Ok(newPosition);
+            //return CreatedAtAction(nameof(GetPositionById), new { id = PositionDto.position_key }, PositionDto); //
+                                                                                                                 return Ok(newPosition);
         }
 
         [HttpPut]
@@ -108,7 +123,7 @@ namespace APIs.Controllers
             // ToDo:  Check Dto for Position_key = 0, then we have an Add/Post
 
             //Position updatedPosition = _context.Position.Find(updatedPositionDto.Position_key);
-            Position existingPosition = _context.Position.FirstOrDefault(c => c.position_key == updatedPositionDto.position_key);
+            JobPosition existingPosition = _context.Position.FirstOrDefault(c => c.position_key == updatedPositionDto.position_key);
 
             // if Position being updated not found, exit
             if (existingPosition == null)
@@ -134,7 +149,7 @@ namespace APIs.Controllers
         [Route("{id:int}")]
         public IActionResult DeletePosition(int id)
         {
-            Position Position = _context.Position.Find(id);
+            JobPosition Position = _context.Position.Find(id);
 
             if (Position is null)
             { return NotFound(); }

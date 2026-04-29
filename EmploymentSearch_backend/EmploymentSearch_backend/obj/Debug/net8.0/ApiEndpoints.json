@@ -287,9 +287,9 @@
   },
   {
     "ContainingType": "APIs.Controllers.PositionController",
-    "Method": "GetPositionById",
+    "Method": "DeletePosition",
     "RelativePath": "api/Position/{id}",
-    "HttpMethod": "GET",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -303,16 +303,32 @@
   },
   {
     "ContainingType": "APIs.Controllers.PositionController",
-    "Method": "DeletePosition",
-    "RelativePath": "api/Position/{id}",
-    "HttpMethod": "DELETE",
+    "Method": "GetAllPositionsForCompany",
+    "RelativePath": "api/Position/GetByCompanyId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIs.Controllers.PositionController",
+    "Method": "GetPositionById",
+    "RelativePath": "api/Position/GetByPositionId",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

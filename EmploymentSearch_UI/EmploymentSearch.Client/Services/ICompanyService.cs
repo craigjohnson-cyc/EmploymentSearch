@@ -1,6 +1,5 @@
 ﻿using EmploymentSearch_DataModel.Models.Entities;
 
-
 namespace EmploymentSearch.Client.Services
 {
 
