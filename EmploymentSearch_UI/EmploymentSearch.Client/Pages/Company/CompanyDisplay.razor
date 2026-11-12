@@ -1,12 +1,15 @@
 ﻿@page "/Company/Display/{id:int}"
 @rendermode InteractiveAuto
 
-@* <h3>Company Display</h3> *@
-
-<CompanyDisplayComponent id="@id">  </CompanyDisplayComponent>
-<PositionListGridComponent id="@id"> </PositionListGridComponent>
-
-
+<div class="row">
+    <div class="col-md-6">
+        <CompanyDisplayComponent id="@id"></CompanyDisplayComponent>
+    </div>
+    <div class="col-md-6">
+        <PositionListGridComponent id="@id"></PositionListGridComponent>
+        
+    </div>
+</div>
 
 @code {
     [Parameter]

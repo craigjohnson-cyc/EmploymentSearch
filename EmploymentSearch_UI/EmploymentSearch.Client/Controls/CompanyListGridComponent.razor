@@ -1,4 +1,6 @@
-﻿@* <h3>CompanyListGridComponent</h3> *@
+﻿@using BlazorBootstrap
+
+@* <h3>CompanyListGridComponent</h3> *@
 @inject ICompanyService CompanyService
 @inject NavigationManager NavigationManager
 
@@ -21,7 +23,7 @@ else
             PageSize="@pageSize"
             PageSizeSelectorVisible="true"
             PageSizeSelectorItems="@(new int[] { 5,10,20 })"
-            RowKeySelector="(comp) => comp.company_key"
+          RowKeySelector="(comp) => comp.CompanyKey"
             SelectedItemsChanged="OnSelectedItemsChanged"
             OnRowClick="OnRowClick"
             Responsive="true"
@@ -29,47 +31,48 @@ else
             EmptyText="No Records to Display">
 
             <GridColumns>
-                <GridColumn TItem="Company" HeaderText="Id" PropertyName="CompId" SortKeySelector="item => item.company_key" IsVisible="false">
-                    @context.company_key
+            <GridColumn TItem="Company" HeaderText="Id" PropertyName="CompId" SortKeySelector="item => item.CompanyKey" IsVisible="false">
+                @context.CompanyKey
                </GridColumn>
 
-                <GridColumn TItem="Company" HeaderText="Company Name" PropertyName="CompName" SortKeySelector="item => item.companyName" StringComparison="StringComparison.Ordinal" FilterOperator="FilterOperator.GreaterThanOrEquals" FilterValue="a">
-                    @context.companyName
+                <GridColumn TItem="Company" HeaderText="Company Name" PropertyName="CompName" SortKeySelector="item => item.CompanyName" StringComparison="StringComparison.Ordinal" FilterOperator="FilterOperator.GreaterThanOrEquals" FilterValue="a">
+                    @context.CompanyName
                 </GridColumn>
 
                 <GridColumn TItem="Company" HeaderText="Web Page" PropertyName="CompWebPage" Filterable="false" >
-                    @if (!string.IsNullOrEmpty(context.link))
+                    @if (!string.IsNullOrEmpty(context.Link))
                     {
-                        <a href="@context.link" target="_blank" class="table-link"> Website</a>
+                        <a href="@context.Link" target="_blank" class="table-link"> Website</a>
                     }
-                    else
+                    @*10/27/26 Decided I didn't like No Website displaied*@
+                   @*  else
                     {
                         <span>No Website</span>
-                    }
+                    } *@
                 </GridColumn>
 
                 <GridColumn TItem="Company" HeaderText="Phone" PropertyName="CompPhone" IsVisible="false">
-                    @context.phone
+                    @context.Phone
                 </GridColumn>
 
                 <GridColumn TItem="Company" HeaderText="Address" PropertyName="CompAddress" IsVisible="false">
-                    @context.address1
+                    @context.Address1
                 </GridColumn> 
 
                 <GridColumn TItem="Company" HeaderText="Address 2" PropertyName="CompAddress2" IsVisible="false">
-                    @context.address2
+                    @context.Address2
                 </GridColumn>
-
+                 
                 <GridColumn TItem="Company" HeaderText="City" PropertyName="CompCity" IsVisible="true" Filterable="false" Sortable="false">
-                    @context.city
+                    @context.City
                 </GridColumn>
 
                 <GridColumn TItem="Company" HeaderText="State" PropertyName="CompState" IsVisible="true" Filterable="false" Sortable="false">
-                    @context.state
+                    @context.State
                 </GridColumn>
 
                 <GridColumn TItem="Company" HeaderText="Zip" PropertyName="CompZip" IsVisible="false">
-                    @context.zip 
+                    @context.Zip 
                 </GridColumn>
 
             </GridColumns>
@@ -90,7 +93,7 @@ else
 @code {
     [Inject] ModalService ModalService { get; set; } = default!;
     // List<Company> companies;
-    private IEnumerable<Company> companies2;
+    private IEnumerable<Company>? companies2;
     private HashSet<Company> selectedCompanies = new();
     int currentPageNumber = 1;
     int pageSize = 12;
@@ -103,15 +106,15 @@ else
         return await Task.FromResult(request.ApplyTo(companies2));
     }
 
-    // protected override async Task OnInitializedAsync()
-    // {
-    //     companies2 = await CompanyService.GetAllCompanies();
-    //     await base.OnInitializedAsync();
-    // }
+    protected override async Task OnInitializedAsync()
+    {
+        companies2 = await CompanyService.GetAllCompanies();
+        await base.OnInitializedAsync();
+    }
 
     private async Task OnRowClick(GridRowEventArgs<Company> args)
     {
-        int companyId = args.Item.company_key;
+        int companyId = args.Item.CompanyKey;
         NavigationManager.NavigateTo($"/Company/Display/{companyId}");
     }
 

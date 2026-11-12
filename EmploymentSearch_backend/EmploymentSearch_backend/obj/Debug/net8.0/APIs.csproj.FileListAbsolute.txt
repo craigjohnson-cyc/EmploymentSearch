@@ -83,6 +83,7 @@ C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_backend\Employmen
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_backend\EmploymentSearch_backend\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_backend\EmploymentSearch_backend\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_backend\EmploymentSearch_backend\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_backend\EmploymentSearch_backend\obj\Debug\net8.0\swae.build.ex.cache
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_backend\EmploymentSearch_backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_backend\EmploymentSearch_backend\obj\Debug\net8.0\APIs.csproj.Up2Date
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_backend\EmploymentSearch_backend\obj\Debug\net8.0\APIs.dll

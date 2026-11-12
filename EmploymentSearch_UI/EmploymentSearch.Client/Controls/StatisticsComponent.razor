@@ -1,0 +1,126 @@
+﻿@inject IStatisticsService StatisticsService
+
+@* <div class="container-fluid"> *@
+
+    <div class="row">
+        <div class="col-md-4 col-lg-4">
+            @*                     <div class="card"> *@
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">Statistics</h5>
+            </div>
+
+            <div class="card-group">
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3>@appsToday</h3>
+                        @* Need to handle null or empty values? *@
+                        <p class="text-muted">Applications sent</p>
+                        <p class="text-muted">Today</p>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3>@appsThisWeek</h3>
+                        <p class="text-muted">Applications sent</p>
+                        <p class="text-muted">this Week</p>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3>@appsThisMonth</h3>
+                        <p class="text-muted">Applications sent</p>
+                        <p class="text-muted">this Month</p>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3>@appsThisYear</h3>
+                        <p class="text-muted">Applications sent</p>
+                        <p class="text-muted">this Year</p>
+                    </div>
+                </div>
+            </div>
+            @* </div> *@
+            <div class="card-group">
+
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3>@rejectsToday</h3>
+                        <p class="text-muted">Rejections</p>
+                        <p class="text-muted">Today</p>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3>@rejectsThisWeek</h3>
+                        <p class="text-muted">Rejections</p>
+                        <p class="text-muted">This Week</p>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3>@rejectsThisMonth</h3>
+                        <p class="text-muted">Rejections</p>
+                        <p class="text-muted">This Month</p>
+                    </div>
+                </div>
+
+                <div class="card-bodyk">
+                    <div class="card-bodyk">
+                        <div class="text-center">
+                            <h3>@rejectsThisYear</h3>
+                            <p class="text-muted">Rejections</p>
+                            <p class="text-muted">This Year</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+@* </div> *@
+
+
+@code {
+    private int appsToday = 0;
+    private int appsThisWeek = 0;
+    private int appsThisMonth = 0;
+    private int appsThisYear = 0;
+    private int rejectsToday = 0;
+    private int rejectsThisWeek = 0;
+    private int rejectsThisMonth = 0;
+    private int rejectsThisYear = 0;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
+        try
+        {
+            List<Statistics> stats = await StatisticsService.GetStatistics();
+            appsToday = stats[0].AppsToday;
+            appsThisWeek = stats[0].AppsThisWeek;
+            appsThisMonth = stats[0].AppsThisMonth;
+            appsThisYear = stats[0].AppsThisYear;
+            rejectsToday = stats[0].RejectsToday;
+            rejectsThisWeek = stats[0].RejectsThisWeek;
+            rejectsThisMonth = stats[0].RejectsThisMonth;
+            rejectsThisYear = stats[0].RejectsThisYear;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading Statistical data: {ex.Message}");
+        }
+    }
+
+}

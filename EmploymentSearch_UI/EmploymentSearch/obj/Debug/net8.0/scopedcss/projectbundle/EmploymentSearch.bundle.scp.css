@@ -1,4 +1,4 @@
-/* _content/EmploymentSearch/Components/Layout/MainLayout.razor.rz.scp.css */
+/* /Components/Layout/MainLayout.razor.rz.scp.css */
 .page[b-h1lxqzcso6] {
     position: relative;
     display: flex;
@@ -95,7 +95,7 @@ main[b-h1lxqzcso6] {
         right: 0.75rem;
         top: 0.5rem;
     }
-/* _content/EmploymentSearch/Components/Layout/NavMenu.razor.rz.scp.css */
+/* /Components/Layout/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-y32mgp0sfy] {
     appearance: none;
     cursor: pointer;

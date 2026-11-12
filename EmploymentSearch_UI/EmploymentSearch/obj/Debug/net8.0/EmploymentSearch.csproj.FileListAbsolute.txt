@@ -28,6 +28,9 @@ C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSear
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\bin\Debug\net8.0\Microsoft.AspNetCore.Components.WebAssembly.dll
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\bin\Debug\net8.0\Microsoft.AspNetCore.Components.WebAssembly.Server.dll
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
@@ -61,6 +64,7 @@ C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSear
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\swae.build.ex.cache
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\Employme.49DA87EC.Up2Date
 C:\Users\Lenovo\source\repos\EmploymentSearch\EmploymentSearch_UI\EmploymentSearch\obj\Debug\net8.0\EmploymentSearch.dll

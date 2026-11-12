@@ -6,28 +6,28 @@
 {
     
     <tr>
-        <td class="no-show">@Company.company_key.ToString().Trim()</td>
-        <td>@Company.companyName.Trim()</td>
-        <td class="no-show">@Company.phone.Trim()</td>
+        <td class="no-show">@Company.CompanyKey.ToString().Trim()</td>
+        <td>@Company.CompanyName.Trim()</td>
+        <td class="no-show">@Company.Phone.Trim()</td>
         <td>
-            @if(!string.IsNullOrEmpty(Company.link))
+            @if(!string.IsNullOrEmpty(Company.Link))
             {
-                <a href="@Company.link" target="_blank" class="table-link"> Website</a>
+                <a href="@Company.Link" target="_blank" class="table-link"> Website</a>
             }
             else
             {
                 <span>No Website</span>
             }
         </td>
-        <td class="no-show">@Company.address1.Trim()</td>
-        <td class="no-show">@Company.address2.Trim()</td>
-        <td class="no-show">@Company.city.Trim()</td>
-        <td class="no-show">@Company.state.Trim()</td>
-        <td class="no-show">@Company.zip.Trim()</td>
+        <td class="no-show">@Company.Address1.Trim()</td>
+        <td class="no-show">@Company.Address2.Trim()</td>
+        <td class="no-show">@Company.City.Trim()</td>
+        <td class="no-show">@Company.State.Trim()</td>
+        <td class="no-show">@Company.Zip.Trim()</td>
         <td>
-            <a href="/Company/Display/@Company.company_key" class="btn btn-link">Select</a>
-            <a href="/Company/Edit/@Company.company_key" class="btn btn-link">Edit</a>
-            <a class="btn btn-link" @onclick="(() => DeleteCompany(Company.company_key))">Delete</a>
+            <a href="/Company/Display/@Company.CompanyKey" class="btn btn-link">Select</a>
+            <a href="/Company/Edit/@Company.CompanyKey" class="btn btn-link">Edit</a>
+            <a class="btn btn-link" @onclick="(() => DeleteCompany(Company.CompanyKey))">Delete</a>
         </td>
     </tr>
 }

@@ -1,0 +1,204 @@
+﻿@implements IDisposable
+@inject ICompanyService CompanyService
+@inject NavigationManager Navigation
+
+<div class="dropdown autocomplete-container w-100">
+
+    <input type="text"
+           class="form-control"
+           placeholder="@Placeholder"
+           value="@SearchText"
+           autocomplete="off"
+           role="combobox"
+           aria-expanded="@IsOpen"
+           @oninput="OnSearch"
+           @onkeydown="HandleKeyDown" />
+
+    @if (IsOpen)
+    {
+        <div class="dropdown-menu show w-100 autocomplete-menu">
+
+            @if (IsLoading)
+            {
+                <span class="dropdown-item-text text-muted">
+                    Searching...
+                </span>
+            }
+            else if (Results.Any())
+            {
+                @for (int i = 0; i < Results.Count; i++)
+                {
+                    var item = Results[i];
+                    var index = i;
+
+                    <button type="button"
+                            class="dropdown-item @(HighlightedIndex == index ? "active" : "")"
+                            @onclick="() => SelectItem(item)">
+
+                        @item.CompanyName
+
+                    </button>
+                }
+            }
+            else
+            {
+                <span class="dropdown-item-text text-muted">
+                    No matching records found.
+                </span>
+            }
+
+        </div>
+    }
+
+</div>
+
+@code {
+    [Parameter]
+    public int MinCharacters { get; set; } = 2;
+
+    [Parameter]
+    public int DebounceMilliseconds { get; set; } = 300;
+
+    [Parameter]
+    public string Placeholder { get; set; } = "Type to search Companies...";
+
+    [Parameter]
+    public Company? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<Company?> ValueChanged { get; set; }
+
+    private string SearchText = "";
+
+    private List<Company> Results = new();
+
+    private int HighlightedIndex = -1;
+
+    private bool IsOpen;
+    private bool IsLoading;
+    private bool IsDisposed;
+
+    private CancellationTokenSource? SearchCancellation;
+
+    private async Task OnSearch(ChangeEventArgs e)
+    {
+        SearchText = e.Value?.ToString() ?? "";
+
+        SearchCancellation?.Cancel();
+
+        Value = null;
+        await ValueChanged.InvokeAsync(null);
+
+        Results.Clear();
+        HighlightedIndex = -1;
+
+        if (SearchText.Length < MinCharacters)
+        {
+            IsOpen = false;
+            IsLoading = false;
+            return;
+        }
+
+        IsOpen = true;
+        IsLoading = true;
+
+        var cts = new CancellationTokenSource();
+        SearchCancellation = cts;
+
+        try
+        {
+            await Task.Delay(DebounceMilliseconds, cts.Token);
+
+            // var results = await CustomerService.SearchCustomersAsync(
+            //     SearchText,
+            //     cts.Token);
+            List<Company> results = await CompanyService.SearchCompanies(SearchText);
+
+            if (cts.IsCancellationRequested || IsDisposed)
+                return;
+
+            if (!ReferenceEquals(SearchCancellation, cts))
+                return;
+
+            Results = results;
+        }
+        catch (OperationCanceledException)
+        {
+            // Search was cancelled
+        }
+        catch (Exception)
+        {
+            if (!cts.IsCancellationRequested && !IsDisposed)
+            {
+                Results.Clear();
+            }
+        }
+        finally
+        {
+            if (ReferenceEquals(SearchCancellation, cts))
+            {
+                SearchCancellation = null;
+                IsLoading = false;
+
+                if (!IsDisposed)
+                    await InvokeAsync(StateHasChanged);
+            }
+
+            cts.Dispose();
+        }
+    }
+
+    private async Task HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "ArrowDown" && Results.Count > 0)
+        {
+            HighlightedIndex++;
+
+            if (HighlightedIndex >= Results.Count)
+                HighlightedIndex = 0;
+        }
+        else if (e.Key == "ArrowUp" && Results.Count > 0)
+        {
+            HighlightedIndex--;
+
+            if (HighlightedIndex < 0)
+                HighlightedIndex = Results.Count - 1;
+        }
+        else if (e.Key == "Enter")
+        {
+            if (HighlightedIndex >= 0 &&
+                HighlightedIndex < Results.Count)
+            {
+                await SelectItem(Results[HighlightedIndex]);
+            }
+        }
+        else if (e.Key == "Escape")
+        {
+            IsOpen = false;
+        }
+    }
+
+    private async Task SelectItem(Company item)
+    {
+        SearchCancellation?.Cancel();
+
+        SearchText = item.CompanyName;
+
+        Value = item;
+
+        Results.Clear();
+        IsOpen = false;
+        IsLoading = false;
+        HighlightedIndex = -1;
+
+
+        Navigation.NavigateTo( "/Company/Display/" + Value.CompanyKey);
+        //await ValueChanged.InvokeAsync(item);
+    }
+
+    public void Dispose()
+    {
+        IsDisposed = true;
+        SearchCancellation?.Cancel();
+    }
+}

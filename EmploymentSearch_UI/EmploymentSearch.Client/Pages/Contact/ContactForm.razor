@@ -1,0 +1,210 @@
+﻿@using EmploymentSearch_DataModel.Models.Entities
+@using EmploymentSearch.Client.Services
+@page "/contacts/create"
+@page "/contacts/{Id:int}"
+@inject NavigationManager Navigation
+    
+}
+<div class="row">
+@*     <div class="col-md-8">
+        <h1 class="page-title">@(IsNew ? "Add Contact" : "Edit Contact")</h1>
+
+        @if (ShowAlert)
+        {
+            <div class="alert alert-@AlertType alert-dismissible fade show" role="alert">
+                @AlertMessage
+                <button type="button" class="btn-close" @onclick="() => ShowAlert = false"></button>
+            </div>
+        }
+
+        <div class="card">
+            <div class="card-body">
+               @*  <EditForm Model="ContactModel" OnValidSubmit="SaveContact">
+                    <DataAnnotationsValidator /> *@
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label for="PositionKey" class="form-label">Position *</label>
+                            <InputSelect id="PositionKey" class="form-select" @bind-Value="ContactModel.PositionKey">
+                                <option value="0">-- Select Position --</option>
+@*                                 @foreach (JobPosition pos in Positions)
+                                {
+                                    <option value="@pos.PositionKey">
+                                        @pos.PositionTitle (@pos.Company?.CompanyName)
+                                    </option>
+                                }
+ *@                            </InputSelect>
+                            <ValidationMessage For="() => ContactModel.PositionKey" class="text-danger" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label for="person" class="form-label">Person (Optional)</label>
+                            <InputSelect id="person" class="form-select" @bind-Value="ContactModel.PersonKey">
+                                <option value="">-- Select Person --</option>
+                                @foreach (var person in Persons)
+                                {
+                                    <option value="@person.PersonKey">@person.Name</option>
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="contactDate" class="form-label">Contact Date *</label>
+                            <InputDate id="contactDate" class="form-control" @bind-Value="ContactModel.ContactDate" />
+                            <ValidationMessage For="() => ContactModel.ContactDate" class="text-danger" />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="contactMethod" class="form-label">Contact Method</label>
+                            <InputSelect id="contactMethod" class="form-select" @bind-Value="ContactModel.ContactMethod">
+                                <option value="">-- Select Method --</option>
+                                <option value="Email">Email</option>
+                                <option value="Phone">Phone</option>
+                                <option value="Text">Text</option>
+                                <option value="Video">Video</option>
+                                <option value="In-Person">In-Person</option>
+                                <option value="Other">Other</option>
+                            </InputSelect>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label for="description" class="form-label">Description</label>
+                            <InputTextArea id="description" class="form-control" @bind-Value="ContactModel.Description" rows="4" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary" disabled="@IsSaving">
+                                @(IsSaving ? "Saving..." : "Save")
+                            </button>
+                            <a href="/contacts" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </div>
+               @*  </EditForm> *@
+           @*  </div>
+        </div>
+    </div>  *@
+</div>
+
+@code {
+    [Parameter]
+    public int? Id { get; set; }
+
+    [SupplyParameterFromQuery]
+    public int? PositionKey { get; set; }
+
+    private Contact ContactModel = new();
+    private List<Position> Positions = new();
+    private List<Person> Persons = new();
+    private bool IsNew => !Id.HasValue;
+    private bool IsSaving = false;
+    private bool ShowAlert = false;
+    private string AlertMessage = "";
+    private string AlertType = "info";
+
+    protected override async Task OnInitializedAsync()
+    {
+        // await LoadPositions();
+        // await LoadPersons();
+
+        if (!IsNew)
+        {
+            var contact = await ContactService.GetContact(Id!.Value);
+            if (contact != null)
+            {
+                ContactModel = contact;
+            }
+            else
+            {
+                AlertType = "danger";
+                AlertMessage = "Contact not found.";
+                ShowAlert = true;
+            }
+        }
+        else if (PositionKey.HasValue)
+        {
+            ContactModel.PositionKey = PositionKey.Value;
+            ContactModel.ContactDate = DateTime.Now;
+        }
+    }
+
+    // private async Task LoadPositions()
+    // {
+    //     try
+    //     {
+    //         Positions = await PositionService.GetAllContacts();
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         Console.WriteLine($"Error loading positions: {ex.Message}");
+    //     }
+    // }
+
+    // private async Task LoadPersons()
+    // {
+    //     try
+    //     {
+    //         Persons = await PersonService.GetAllPersonsAsync();
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         Console.WriteLine($"Error loading persons: {ex.Message}");
+    //     }
+    // }
+
+    private async Task SaveContact()
+    {
+        IsSaving = true;
+        try
+        {
+            if (ContactModel.ContactDate == default)
+            {
+                ContactModel.ContactDate = DateTime.Now;
+            }
+
+            if (IsNew)
+            {
+                var saved = await ContactService.AddContact(ContactModel);
+                AlertType = "success";
+                AlertMessage = "Contact created successfully!";
+                ShowAlert = true;
+                await Task.Delay(1500);
+                Navigation.NavigateTo("/contacts");
+            }
+            else
+            {
+                await ContactService.UpdateContact(ContactModel);
+                AlertType = "success";
+                AlertMessage = "Contact updated successfully!";
+                ShowAlert = true;
+                await Task.Delay(1500);
+                Navigation.NavigateTo("/contacts");
+            }
+        }
+        catch (Exception ex)
+        {
+            AlertType = "danger";
+            AlertMessage = $"Error saving contact: {ex.Message}";
+            ShowAlert = true;
+        }
+        finally
+        {
+            IsSaving = false;
+        }
+    }
+
+    [Inject]
+    protected IContactService ContactService { get; set; } = null!;
+
+    [Inject]
+    protected IPositionService PositionService { get; set; } = null!;
+
+    [Inject]
+    protected IPersonService PersonService { get; set; } = null!;
+}

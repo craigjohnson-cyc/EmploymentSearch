@@ -1,0 +1,39 @@
+﻿<h1 class="page-title">Employment Search Dashboard</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <a href="/companies/create" class="btn btn-primary btn-lg w-100 mb-3">
+                    <i class="bi bi-plus-circle"></i> Add New Company
+                </a>
+                <a href="/Company/List" class="btn btn-outline-primary btn-lg w-100 mb-3">
+                    <i class="bi bi-building"></i> View All Companies
+                </a>
+
+                <p>Search for Companies by Name</p>
+                
+                <AutoCompleteComponent Placeholder="Start typing a company name..."
+                                       MinCharacters="2"
+                                       DebounceMilliseconds="300"
+                                       @bind-Value="SelectedCompany" />
+
+               
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@code {
+    private Company? SelectedCompany;
+
+    private void CompanySelected(Company item)
+    {
+        SelectedCompany = item;
+    }
+}

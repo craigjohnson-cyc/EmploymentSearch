@@ -7,6 +7,7 @@ namespace EmploymentSearch.Client.Services
     {
         Task<List<Company>> GetAllCompanies();
         Task<List<Company>> GetCompanies(int pageNumber, int pageSize);
+        Task<List<Company>> SearchCompanies(string searchQuery); //, CancellationToken cancellationToken);
         Task<Company> GetCompany(int id);
         Task<HttpResponseMessage> AddCompany(Company company);
         Task<HttpResponseMessage> UpdateCompany(Company company);

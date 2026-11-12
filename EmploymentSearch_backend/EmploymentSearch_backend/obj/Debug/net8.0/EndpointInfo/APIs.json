@@ -175,7 +175,79 @@
         }
       }
     },
-    "/api/Contact": {
+    "/api/Company/{searchTerm}": {
+      "get": {
+        "tags": [
+          "Company"
+        ],
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "pattern": "^[A-Za-z]*$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Contact/Position/{positionId}": {
+      "get": {
+        "tags": [
+          "Contact"
+        ],
+        "parameters": [
+          {
+            "name": "positionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Contact"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Contact"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Contact"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Contact/{id}": {
       "get": {
         "tags": [
           "Contact"
@@ -183,7 +255,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -196,6 +269,29 @@
           }
         }
       },
+      "delete": {
+        "tags": [
+          "Contact"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Contact": {
       "post": {
         "tags": [
           "Contact"
@@ -279,14 +375,35 @@
         }
       }
     },
-    "/api/Contact/{id}": {
+    "/api/Person": {
       "get": {
         "tags": [
-          "Contact"
+          "Person"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Person/{pageNumber}/{pageSize}": {
+      "get": {
+        "tags": [
+          "Person"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "pageNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
             "in": "path",
             "required": true,
             "schema": {
@@ -300,10 +417,12 @@
             "description": "OK"
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/api/Person/{id}": {
+      "get": {
         "tags": [
-          "Contact"
+          "Person"
         ],
         "parameters": [
           {
@@ -483,6 +602,50 @@
         }
       }
     },
+    "/api/Position/{id}/{status}": {
+      "put": {
+        "tags": [
+          "Position"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "status",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "pattern": "^[A-Za-z]*$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Statistics": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -525,6 +688,69 @@
   },
   "components": {
     "schemas": {
+      "Company": {
+        "required": [
+          "companyName"
+        ],
+        "type": "object",
+        "properties": {
+          "companyKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyName": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "phone": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "link": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "address1": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "maxLength": 2,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "zip": {
+            "maxLength": 10,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CompanyDto": {
         "type": "object",
         "properties": {
@@ -567,6 +793,48 @@
         },
         "additionalProperties": false
       },
+      "Contact": {
+        "required": [
+          "contactDate"
+        ],
+        "type": "object",
+        "properties": {
+          "contactKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "positionKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "personKey": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "contactMethod": {
+            "maxLength": 5,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "contactDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "position": {
+            "$ref": "#/components/schemas/JobPosition"
+          },
+          "person": {
+            "$ref": "#/components/schemas/Person"
+          }
+        },
+        "additionalProperties": false
+      },
       "ContactDto": {
         "type": "object",
         "properties": {
@@ -584,6 +852,158 @@
           },
           "description": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "JobPosition": {
+        "required": [
+          "positionTitle"
+        ],
+        "type": "object",
+        "properties": {
+          "positionKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "positionTitle": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "isRemote": {
+            "type": "boolean"
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "rate": {
+            "maxLength": 25,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "link": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicationDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastContactDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "status": {
+            "maxLength": 10,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "statusDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "company": {
+            "$ref": "#/components/schemas/Company"
+          },
+          "contacts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contact"
+            },
+            "nullable": true
+          },
+          "persons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Person"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Person": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "personKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "positionKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "phoneOffice": {
+            "maxLength": 13,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "phoneCell": {
+            "maxLength": 13,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "preferedPhone": {
+            "maxLength": 6,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "preferedContact": {
+            "maxLength": 6,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "linkedIn": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "position": {
+            "$ref": "#/components/schemas/JobPosition"
+          },
+          "company": {
+            "$ref": "#/components/schemas/Company"
+          },
+          "contacts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contact"
+            },
             "nullable": true
           }
         },

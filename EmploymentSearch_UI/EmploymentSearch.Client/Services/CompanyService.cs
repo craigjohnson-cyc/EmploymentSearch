@@ -6,7 +6,7 @@ namespace EmploymentSearch.Client.Services
     public partial class CompanyService() : ICompanyService
     {
         //[Inject]
-        private readonly HttpClient _httpClient;
+        private readonly HttpClient? _httpClient;
 
         public CompanyService(HttpClient httpClient) : this()
         {
@@ -77,6 +77,14 @@ namespace EmploymentSearch.Client.Services
             {
                 return companyList;
             }
+        }
+
+        public async Task<List<Company>> SearchCompanies(string searchQuery) 
+        {
+            List<Company> companyList = await _httpClient.GetFromJsonAsync<List<Company>>("Company/" + searchQuery); 
+
+            return companyList ?? new List<Company>();
+
         }
     }
 

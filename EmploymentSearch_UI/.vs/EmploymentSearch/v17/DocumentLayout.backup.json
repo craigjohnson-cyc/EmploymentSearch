@@ -3,12 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2558B628-C561-42BD-9205-48BD1543B643}|EmploymentSearch.Client\\EmploymentSearch.Client.csproj|c:\\users\\lenovo\\source\\repos\\employmentsearch\\employmentsearch_ui\\employmentsearch.client\\controls\\companylistgridcomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2558B628-C561-42BD-9205-48BD1543B643}|EmploymentSearch.Client\\EmploymentSearch.Client.csproj|solutionrelative:employmentsearch.client\\controls\\companylistgridcomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2558B628-C561-42BD-9205-48BD1543B643}|EmploymentSearch.Client\\EmploymentSearch.Client.csproj|c:\\users\\lenovo\\source\\repos\\employmentsearch\\employmentsearch_ui\\employmentsearch.client\\controls\\positionlistgridcomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2558B628-C561-42BD-9205-48BD1543B643}|EmploymentSearch.Client\\EmploymentSearch.Client.csproj|solutionrelative:employmentsearch.client\\controls\\positionlistgridcomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0591257E-0490-43FD-8321-3EBDEC95A1D1}|..\\EmploymentSearch_DataModel\\EmploymentSearch_DataModel\\EmploymentSearch_DataModel.csproj|c:\\users\\lenovo\\source\\repos\\employmentsearch\\employmentsearch_datamodel\\employmentsearch_datamodel\\models\\entities\\jobposition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2558B628-C561-42BD-9205-48BD1543B643}|EmploymentSearch.Client\\EmploymentSearch.Client.csproj|c:\\users\\lenovo\\source\\repos\\employmentsearch\\employmentsearch_ui\\employmentsearch.client\\controls\\companylistgridcomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2558B628-C561-42BD-9205-48BD1543B643}|EmploymentSearch.Client\\EmploymentSearch.Client.csproj|solutionrelative:employmentsearch.client\\controls\\companylistgridcomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2558B628-C561-42BD-9205-48BD1543B643}|EmploymentSearch.Client\\EmploymentSearch.Client.csproj|c:\\users\\lenovo\\source\\repos\\employmentsearch\\employmentsearch_ui\\employmentsearch.client\\services\\positionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +57,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,7 +65,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
+              "Title": "JobPosition.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_DataModel\\EmploymentSearch_DataModel\\Models\\Entities\\JobPosition.cs",
+              "RelativeDocumentMoniker": "..\\EmploymentSearch_DataModel\\EmploymentSearch_DataModel\\Models\\Entities\\JobPosition.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_DataModel\\EmploymentSearch_DataModel\\Models\\Entities\\JobPosition.cs",
+              "RelativeToolTip": "..\\EmploymentSearch_DataModel\\EmploymentSearch_DataModel\\Models\\Entities\\JobPosition.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAhwBUAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T16:52:35.321Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch\\Program.cs",
               "RelativeDocumentMoniker": "EmploymentSearch\\Program.cs",
@@ -74,20 +90,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PositionService.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\Services\\PositionService.cs",
               "RelativeDocumentMoniker": "EmploymentSearch.Client\\Services\\PositionService.cs",
               "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\Services\\PositionService.cs",
               "RelativeToolTip": "EmploymentSearch.Client\\Services\\PositionService.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAMwEcAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAwwEcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-09T23:45:32.135Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "IPositionService.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\Services\\IPositionService.cs",
               "RelativeDocumentMoniker": "EmploymentSearch.Client\\Services\\IPositionService.cs",
@@ -99,20 +115,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "PositionListGridComponent.razor",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\Controls\\PositionListGridComponent.razor",
               "RelativeDocumentMoniker": "EmploymentSearch.Client\\Controls\\PositionListGridComponent.razor",
-              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\Controls\\PositionListGridComponent.razor",
-              "RelativeToolTip": "EmploymentSearch.Client\\Controls\\PositionListGridComponent.razor",
-              "ViewState": "AgIAAFwAAAAAAAAAAMAwwHQAAAAIAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\Controls\\PositionListGridComponent.razor*",
+              "RelativeToolTip": "EmploymentSearch.Client\\Controls\\PositionListGridComponent.razor*",
+              "ViewState": "AgIAAGIAAAAAAAAAAAARwHAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-09T19:48:12.17Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CompanyDisplayComponent.razor",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\Controls\\CompanyDisplayComponent.razor",
               "RelativeDocumentMoniker": "EmploymentSearch.Client\\Controls\\CompanyDisplayComponent.razor",
@@ -124,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "CompanyDisplay.razor",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\Pages\\Company\\CompanyDisplay.razor",
               "RelativeDocumentMoniker": "EmploymentSearch.Client\\Pages\\Company\\CompanyDisplay.razor",
@@ -136,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "_Imports.razor",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch\\Components\\_Imports.razor",
               "RelativeDocumentMoniker": "EmploymentSearch\\Components\\_Imports.razor",
@@ -148,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "App.razor",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch\\Components\\App.razor",
               "RelativeDocumentMoniker": "EmploymentSearch\\Components\\App.razor",
@@ -160,20 +176,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "CompanyListGridComponent.razor",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\Controls\\CompanyListGridComponent.razor",
               "RelativeDocumentMoniker": "EmploymentSearch.Client\\Controls\\CompanyListGridComponent.razor",
               "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\Controls\\CompanyListGridComponent.razor",
               "RelativeToolTip": "EmploymentSearch.Client\\Controls\\CompanyListGridComponent.razor",
-              "ViewState": "AgIAAFcAAAAAAAAAAIApwGoAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAARwFoAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-02-02T16:35:21.602Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "CompanyListTableItemComponent.razor",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\Controls\\CompanyListTableItemComponent.razor",
               "RelativeDocumentMoniker": "EmploymentSearch.Client\\Controls\\CompanyListTableItemComponent.razor",
@@ -185,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "CompanyService.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\Services\\CompanyService.cs",
               "RelativeDocumentMoniker": "EmploymentSearch.Client\\Services\\CompanyService.cs",

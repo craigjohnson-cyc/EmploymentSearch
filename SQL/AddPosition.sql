@@ -1,63 +1,100 @@
 --Company columns
 declare  @company nchar(50), @companyKey int, @phone nchar(13), @link nvarchar(max), @address1 nchar(50), @address2 nchar(50), @city nchar(30), @state nchar(2), @zip nchar(10), @companyNote nvarchar(max), @positionkey int, @jobtitle nchar(200), @positionnote nvarchar(max), @positionlink nvarchar(max), @payrate nchar(25), @positionstatus nchar(10);
 
-set @company = 'Emerald Resource Group';
-set @phone = '440-922-9000';
-set @link = 'https://www.emeraldresourcegroup.com/';
-set @address1 = '1 Eagle Valley Court';
+set @company = 'OrthoFi';
+set @phone = '';
+set @link = '';
+set @address1 = '';
 set @address2 = '';
-set @city = 'Broadview Heights';
-set @state = 'OH';
-set @zip = '44147';
-set @jobtitle = 'Software Engineer';
-set @positionnote = ' The Opportunity
+set @city = 'Remote';
+set @state = '';
+set @zip = '';
+set @jobtitle = 'Senior Software Engineer';
 
-This role is ideal for a hands-on .NET Web Developer who enjoys working across the full software development lifecycle and contributing to business-critical systems. You will join a collaborative development team responsible for building, enhancing, and supporting high-traffic ecommerce and internal applications that directly impact the business.
+set @positionnote = 'At OrthoFi, we are looking for a talented, full stack Senior Software Engineer to drive technical execution and tackle complex challenges in our Insurance domain. This role requires a deep understanding of building scalable, modern applications while navigating the complexities of an industry with strict regulations, high data integrity requirements, and intricate workflows.
 
+As a Senior Engineer, you will serve as a critical technical problem-solver— who takes extreme ownership of building scalable, highly reliable software systems in an agile environment. In this role, you will navigate the technical and regulatory complexities of insurance eligibility, claims processing, and remittance workflows. You will work closely with domain experts, product managers, and engineering peers to modernize legacy systems, design service-based architectures, and deliver high-impact software.
+
+Success in this role is measured by your ability to evolve our core systems with a relentless focus on Business ROI and long-term technical health. Beyond writing exceptional code, you will champion the integration and adoption of AI tools, agentic workflows, and other efficiency drivers to fundamentally reshape how we develop software.
 
 What You Will Do
+As a Senior Software Engineer your core responsibilities include:
 
-Design, develop, test, and maintain applications using C# and .NET
-Execute full lifecycle software development from requirements through deployment
-Write clean, efficient, and well-documented code
-Collaborate with cross-functional teams to assess technical feasibility and system design
-Integrate software components into scalable, fully functional systems
-Develop and execute software verification and quality assurance procedures
-Create and maintain technical documentation including specifications and workflows
-Serve as a technical resource and mentor for other developers
-Recommend improvements to tools, processes, and development standards
-Stay current with modern development tools and best practices
+Design & System Evolution: Decompose complex business scenarios into clean, service-based architectures and distributed systems. Modernize legacy platforms with a focus on simplicity, maintainability, and long-term ROI.
+Domain Alignment: Translate complex orthodontic insurance rules (claims, eligibility, remittance) into clean, high-performing technical solutions.
+Epic Ownership: Own the delivery of Epics end-to-end, actively managing risks, dependencies, and team-level DORA KPIs while ensuring system performance and delivery reliability.
+Full-Stack Development: Write clean, robust, and maintainable code across the stack, leveraging modern JavaScript frameworks (React) on the frontend and .NET Core/.NET Framework on the backend.
+AI-Assisted Engineering: Champion responsible, AI-assisted development. Actively integrate AI tools (e.g., Claude, GitHub Copilot) to automate design, test generation, and code reviews, and build agentic workflows to drive team efficiency.
+Software Design & Quality: Set rigorous standards for code quality through constructive code reviews, comprehensive automated testing (including AI-driven test suites), and continuous integration/delivery (CI/CD).
+Technical Leadership & Mentorship: Guide junior and mid-level engineers on software design patterns, debug cross-module issues, and act as a professional stakeholder manager who can navigate technical disagreements constructively ("disagree and commit").
+What You Will Bring
 
+Education & Core Experience
 
-Required Qualifications
+Education: 4-year Bachelor’s degree in a STEM (Science, Technology, Engineering, Mathematics) major or a Masters degree in Technology or Computer Science or related field.
+Professional Experience: 10+ years of professional software development experience, with a minimum of 4+ years in a Senior Software Engineer role (or equivalent).
+Core Technical Expertise
+Backend Ecosystem: Strong, hands-on experience with the .NET Ecosystem (.NET Core / .NET Framework) and robust relational database design using SQL Server (including query optimization).
+Frontend Ecosystem: Extensive experience building highly responsive, scalable user interfaces using modern JavaScript frameworks—specifically React and/or Angular (Required).
+Architecture & Design: Practical experience applying Domain-Driven Design (DDD) principles and building service-based or distributed architectures.
+Cloud & DevOps: Strong proficiency with AWS services (or other major cloud architectures), CI/CD pipelines and infrastructure provisioning.
+Batch & Data Processing: Familiarity with high-volume batch processing, background automated jobs, and handling complex data streams.
+Preferred Technical Pluses
+Experience with Infrastructure as Code (IaC) using Terraform.
+Familiarity with event-driven architectures and system monitoring/APM tools (e.g., Datadog).
+Prior domain knowledge in orthodontic/dental billing, medical insurance, or healthcare fintech.
+Experience designing and querying APIs with GraphQL.
+Experience with search and analytics engines, specifically ElasticSearch.
+AI & Automation Mindset
+Demonstrated experience or active experimentation leveraging modern AI coding assistants (e.g., Cursor, Claude, GitHub Copilot) to optimize development velocity.
+Familiarity with Gen AI and Enterprise agentic workflows or utilizing Model Context Protocols (MCPs) to automate engineering workflows.
+Experience with automated testing frameworks (such as Playwright or equivalent) driven by AI agents.
+How You Will Work
+Engineering Persona: The Site Manager. You focus on building highly structured systems and show extreme ownership and systems thinking over your domain’s codebase.
+Delivery: You roadmap large tracks of work, identify non-functional requirements (NFRs) for Epics, and maintain high execution integrity without needing close supervision.
+Problem Solving: You define the scope of open-ended, ambiguous problems and independently offer thoughtful, data-driven analysis to drive continuous process improvement.
+Communication: You deliver persuasive, concise, and fact-backed technical communications tailored to both engineering teams and non-technical stakeholders.
+Leadership: You raise the bar for code quality, manage stakeholder expectations, and proactively identify cross-team dependencies.
+Code Fluency: You design reusable, modular components that adapt to changing business needs, prioritizing long-term maintainability over speed-first "copy-pasting."
 
-Bachelor’s degree in Computer Science, Engineering, Information Technology, or a related field
-4 or more years of professional software development experience
-Strong hands-on experience with C# and .NET
-Solid understanding of object-oriented programming principles
-Experience working with relational databases and SQL Server
-Experience with full software development lifecycle methodologies
-Must be legally authorized to work in the United States without sponsorship
+What’s in it for you:
 
+Full medical, dental, and vision plans
+Flexible PTO
+Employer HSA contribution
+9 Company Paid holidays
+401(k) match, 3% after 90 days of employment
+Supportive culture with one-of-a-kind growth opportunities
+Ability to work from home
+Paid Parental Leave as well as a two-week "ease-back" program that enables parents to return part-time at full pay
+Company and team outings
+Peer-to-peer recognition program
+Vendor discounts
 
-Nice to Have
-
-Experience with front-end technologies such as React, Angular, Vue, JavaScript, HTML, CSS, or jQuery
-Exposure to Unix or Linux environments
-Experience supporting or modernizing legacy systems
-Knowledge of data communications or socket-based integrations
-
-
-Work Environment
-
-100% remote role
-U.S.-based candidates only
-No visa sponsorship available
 ';
 --******************************************************************
-set @positionlink = 'https://www.linkedin.com/jobs/view/4368883033/?trackingId=0NBmSPAYS8KWhnIGvCFIAg%3D%3D&refId=DmFYtittSAip%2FdB6NwGmcg%3D%3D&eBP=NOT_ELIGIBLE_FOR_CHARGING&midToken=AQE_3XQkBAKpjA&midSig=3KWtRLsCcdcY81&trk=eml-jobs_jymbii_digest-job_card-0-jobcard_body_4368883033&trkEmail=eml-jobs_jymbii_digest-job_card-0-jobcard_body_4368883033-null-mw6pip~ml8srjvh~k9-null-null&eid=mw6pip-ml8srjvh-k9&otpToken=MTMwNjE2ZTQxMTJmY2ZjMWJkMmQwZmViNDExOWU3YjY4YWM4ZDE0ODkxYTk4YjY4N2JkYTAyNmU0ODVlNTlmMGZlZDRkY2ViMThkMGQzZjI3NGJhZjJiMjFkZWQzMDE3YjgzZGM5ZTNlZTM4ZDNhYjVlZjU5Zjc2MjUsMSwx';
-set @payrate = 'Up 2 125k';
-set @companyNote = 'Our client is a privately held, highly profitable ecommerce organization with approximately $800 million in annual revenue. Based in the Columbus, Ohio area, the company has built a strong national presence and long-term stability while continuing to invest heavily in technology, scalability, and modern development practices.
+set @positionlink = 'https://www.glassdoor.com/job-listing/healthcare-software-engineer-patient-centric-solutions-JV_KO0,28_KE29,54.htm?jl=1010241860306&utm_source=jobalert&utm_medium=email&utm_content=ja-jobpos3-age6d-1010241860306&utm_campaign=jobAlertAlert&tgt=GD_JOB_VIEW&src=GD_JOB_AD&uido=7A57A36BECDA9E413E76BB41CD0D8A0B&ao=1136043&jrtk=5-yul1-0-1k1emin7ajn0v800-56d13e7a435ca6f6&cs=1_f318d83f&s=224&t=JA&pos=103&ja=378462087&guid=000001a05d5877c88eafaa213b28b750&jobListingId=1010241860306&ea=1&vt=e&cb=1788273581621&ctt=1788273669584&srs=EMAIL_JOB_ALERT&gdir=1
+';
+set @payrate = '130-170K';
+set @companyNote = 'At OrthoFi, were not just another player in the orthodontic industry – were the driving force that helps orthodontists launch more smiles while ensuring top-tier patient care. Our tech-savvy solutions are the secret sauce that empowers orthodontic practices across the United States. With a track record of supporting over 2,000 practices, and in partnership with OrthoBanc, weve unlocked access to quality, affordable orthodontic care for a whopping 3.2 million patients and counting!
+
+
+Picture this: Our cutting-edge Patient Acquisition software combined with our expert Revenue Cycle Management solutions propels practices to achieve jaw-dropping 13% year-over-year growth. Plus, when it comes to patient and insurance billing, our collection results leave competitors in the dust.
+
+
+Behind our mission is a dynamic team of around 300 passionate individuals. Our headquarters is based in Denver, CO, with employees spread across several states. Join us in our quest to transform the orthodontic landscape – where innovation meets dedication, and starting more smiles are just the beginning.
+
+
+Our purpose is to radically improve the way patients access and pay for quality elective care. Diversity, equity, and inclusion (DEI) ensures we can fulfill our purpose by creating a better, more equitable and inclusive workplace for our community members and healthcare experience for all.
+
+
+By focusing on DEI, we are working towards our mission of connecting more patients with quality orthodontic and dental care and helping make treatment accessible to over 1 million patients a year by 2025. Equity is core to our mission to serve patients, and DEI is embedded in our core values, especially “seek diversity,” and “do what’s right.”"
+
+
+OrthoFi is proud to be an equal opportunity workplace and is an affirmative action employer. We are committed to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity or Veteran status.
+
+
+Roles based outside of our Denver office can sit in any of the following states: Colorado, Florida, Georgia, Louisiana, North Carolina, Ohio, Tennessee, and Texas. Please only apply if you are able to live and work full-time in one of the states listed above.
 ';
 
 Begin Transaction;
@@ -79,12 +116,13 @@ Insert Into [EmpSearch].[dbo].[Contact] (Position_Key, Person_Key, ContactDate, 
 
 
 --select max(position_key) from position
-select * from position where position_key = @positionkey
-select * from company where company_key = @companyKey
-select * from contact where Position_Key = @positionkey
+select 'Position' as TableName,* from position where position_key = @positionkey
+select 'Company' as TableName,* from company where company_key = @companyKey
+select 'Contact' as TableName,* from contact where Position_Key = @positionkey
 
 --delete from position where position_key = 169
 --delete from company where Company_Key = 168
 
-
+--rollback;
 --commit;
+

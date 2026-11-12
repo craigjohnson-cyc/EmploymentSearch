@@ -11,16 +11,19 @@ Function Main
     . "$PSScriptRoot\FuncLib.ps1"
 
     # Define DataBase connections
-    $dataBaseServer = "desktop-17plb3h\sqlexpress"
+    $dataBaseServer = "LENOVONOTEBOOK\SQLEXPRESS"
     $dataBaseName = "EmpSearch"
 
-    #TODO Read all CSV file names into an array
-    #     Then process each file
+    #TODO 1. Read all CSV file names into an array
+    #        Then process each file
 
     # Get CSV File name
-    $inputFile = "C:\Users\Lenovo\source\repos\EmploymentSearch\InitialInput.csv"
+    $inputFile = "C:\Users\Lenovo\source\repos\EmploymentSearch\DataBase\2026aplications.csv"
 
     $data = Import-Csv -Path $inputFile -Delimiter ';'
+
+    $errorCount = 0
+
     foreach ($row in $data)
     {
         $found = $false
@@ -74,7 +77,9 @@ Function Main
             }
             catch
             {
+                $errorCount+=1
                 ReportError $_ $sqlCommand
+                Break
             }
             $company_Key = $returnValue.Company_Key
         }
@@ -92,7 +97,9 @@ Function Main
         }
         catch
         {
+            $errorCount+=1
             ReportError $_ $sqlCommand
+            Break
         }
         $position_Key = $returnValue.Position_Key
 
@@ -100,15 +107,17 @@ Function Main
         $appSubmitted = 'Application Submitted'
         $contact = CreateContactObj $row.ApplicationDate $appSubmitted $position_Key
         $sqlCommand = "
-            Insert Into [dbo].[Contact] (Position_Key, ContactDate, Description)
-                   Values ({0}, '{1}', '{2}' ) " -f $position_Key, $contact.ContactDate, $contact.Description
+            Insert Into [dbo].[Contact] (Position_Key, ContactDate, Description, Person_Key, ContactMethod)
+                   Values ({0}, '{1}', '{2}', {3}, '{4}' ) " -f $position_Key, $contact.ContactDate, $contact.Description, $contact.Person_Key, $contact.ContactMethod
         try
         {
             $a = Invoke-SQL -dataSource $dataBaseServer -database $dataBaseName -sqlCommand $sqlcommand
         }
         catch
         {
+            $errorCount+=1
             ReportError $_ $sqlCommand
+            Break
         }
 
 
@@ -120,8 +129,8 @@ Function Main
             if ($row.Status.ToLower().Trim() -eq "rejection")
             {
                 $sqlCommand = "
-                    Insert Into [dbo].[Contact] (Position_Key, ContactDate, Description)
-                           Values ({0}, '{1}', '{2}' ) " -f $position_Key, $row.StatusDate, $row.Status
+                    Insert Into [dbo].[Contact] (Position_Key, ContactDate, Description, Person_Key, ContactMethod)
+                           Values ({0}, '{1}', '{2}', {3}, '{4}'  ) " -f $position_Key, $row.StatusDate, $row.Status, $contact.Person_Key, $contact.ContactMethod
                 $a = Invoke-SQL -dataSource $dataBaseServer -database $dataBaseName -sqlCommand $sqlcommand
             }
         }
@@ -139,7 +148,7 @@ function CreateCompanyObj()
     
     $companyObj = New-Object PSObject
     $companyObj | add-member -type NoteProperty -Name Company_Key -Value 0
-    $companyObj | add-Member -type NoteProperty -Name CompanyName -Value $company
+    $companyObj | add-Member -type NoteProperty -Name CompanyName -Value $company.Trim()
     $companyObj | add-member -type NoteProperty -Name Link -Value ""
     $companyObj | add-member -type NoteProperty -Name Phone -Value ""
     $companyObj | add-member -type NoteProperty -Name Address1 -Value ""
@@ -158,14 +167,17 @@ function CreatePositionObj()
     $positionObj = New-Object PSObject
     $positionObj | add-member -type NoteProperty -Name Position_Key -Value 0
     $positionObj | add-Member -type NoteProperty -Name Company_Key -Value $company_Key
-    $positionObj | add-member -type NoteProperty -Name Position -Value $position
-    $positionObj | add-member -type NoteProperty -Name Note -Value $note
-    $positionObj | add-member -type NoteProperty -Name Rate -Value $rate
-    $positionObj | add-member -type NoteProperty -Name Link -Value $link
-    $positionObj | add-member -type NoteProperty -Name ApplicationDate -Value $AppDate
-    $positionObj | add-member -type NoteProperty -Name LastContactDate -Value $statusDate
-    $positionObj | add-member -type NoteProperty -Name Status -Value $status
-    $positionObj | add-member -type NoteProperty -Name StatusDate -Value $statusDate
+    $positionObj | add-member -type NoteProperty -Name Position -Value $position.Trim()
+    if([string]::IsNullOrEmpty($note.Trim()) )
+        {$positionObj | add-member -type NoteProperty -Name Note -Value ""}
+    else
+        {$positionObj | add-member -type NoteProperty -Name Note -Value $note.Trim()}
+    $positionObj | add-member -type NoteProperty -Name Rate -Value $rate.Trim()
+    $positionObj | add-member -type NoteProperty -Name Link -Value $link.Trim()
+    $positionObj | add-member -type NoteProperty -Name ApplicationDate -Value $AppDate.Trim()
+    $positionObj | add-member -type NoteProperty -Name LastContactDate -Value $statusDate.Trim()
+    $positionObj | add-member -type NoteProperty -Name Status -Value $status.Trim()
+    $positionObj | add-member -type NoteProperty -Name StatusDate -Value $statusDate.Trim()
 
     return $positionObj
 }
@@ -176,9 +188,11 @@ function CreateContactObj()
     
     $contactObj = New-Object PSObject
     $contactObj | add-member -type NoteProperty -Name Contact_Key -Value 0
-    $contactObj | add-Member -type NoteProperty -Name Position_Key -Value $position_Key
-    $contactObj | Add-Member -type NoteProperty -Name ContactDate -Value $contactDate
-    $contactObj | add-member -type NoteProperty -Name Description -Value $contactNote
+    $contactObj | add-member -type NoteProperty -Name Position_Key -Value $position_Key
+    $contactObj | add-Member -type NoteProperty -Name Person_Key -Value 0
+    $contactObj | add-Member -type NoteProperty -Name ContactMethod -Value ""
+    $contactObj | Add-Member -type NoteProperty -Name ContactDate -Value $contactDate.Trim()
+    $contactObj | add-member -type NoteProperty -Name Description -Value $contactNote.Trim()
 
     return $contactObj
 }

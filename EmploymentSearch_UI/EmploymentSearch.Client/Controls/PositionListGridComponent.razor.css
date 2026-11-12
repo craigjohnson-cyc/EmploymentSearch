@@ -1,0 +1,34 @@
+/* CSS for PositionListGridComponent component */
+.note-cell-container {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.note-cell {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    word-break: break-word;
+    line-height: 1.4;
+    font-size: 14px;
+    padding: 4px 0;
+}
+
+.note-cell-container:hover {
+    background-color: #f9f9f9;
+    border-radius: 3px;
+}
+
+.note-cell-container[title] {
+    cursor: help;
+    border-bottom: 1px dotted #999;
+}
+
+::deep .date-column {
+    min-width: 110px !important;
+    max-width: 120px !important;
+}

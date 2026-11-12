@@ -1,17 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "kk2GJYzXdBs=",
+  "dgSpecHash": "VzWCUViy3sA=",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\EmploymentSearch.Client.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Lenovo\\.nuget\\packages\\blazor.bootstrap\\3.5.0\\blazor.bootstrap.3.5.0.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.23\\microsoft.aspnetcore.authorization.8.0.23.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.23\\microsoft.aspnetcore.components.8.0.23.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\8.0.23\\microsoft.aspnetcore.components.analyzers.8.0.23.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\8.0.23\\microsoft.aspnetcore.components.forms.8.0.23.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.components.web\\8.0.23\\microsoft.aspnetcore.components.web.8.0.23.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\8.0.23\\microsoft.aspnetcore.components.webassembly.8.0.23.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.metadata\\8.0.23\\microsoft.aspnetcore.metadata.8.0.23.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\blazor.bootstrap\\4.0.0\\blazor.bootstrap.4.0.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.32\\microsoft.aspnetcore.authorization.8.0.32.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.32\\microsoft.aspnetcore.components.8.0.32.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\8.0.32\\microsoft.aspnetcore.components.analyzers.8.0.32.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\8.0.32\\microsoft.aspnetcore.components.forms.8.0.32.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.components.web\\8.0.32\\microsoft.aspnetcore.components.web.8.0.32.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\8.0.32\\microsoft.aspnetcore.components.webassembly.8.0.32.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.metadata\\8.0.32\\microsoft.aspnetcore.metadata.8.0.32.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.32\\microsoft.entityframeworkcore.8.0.32.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.32\\microsoft.entityframeworkcore.abstractions.8.0.32.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.32\\microsoft.entityframeworkcore.analyzers.8.0.32.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.1\\microsoft.extensions.caching.memory.8.0.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.extensions.configuration.binder\\8.0.2\\microsoft.extensions.configuration.binder.8.0.2.nupkg.sha512",
@@ -26,12 +31,26 @@
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.3\\microsoft.extensions.logging.abstractions.8.0.3.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.jsinterop\\8.0.23\\microsoft.jsinterop.8.0.23.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.jsinterop.webassembly\\8.0.23\\microsoft.jsinterop.webassembly.8.0.23.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.23\\microsoft.net.illink.tasks.8.0.23.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.12\\microsoft.net.sdk.webassembly.pack.9.0.12.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.jsinterop\\8.0.32\\microsoft.jsinterop.8.0.32.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.jsinterop.webassembly\\8.0.32\\microsoft.jsinterop.webassembly.8.0.32.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.32\\microsoft.net.illink.tasks.8.0.32.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\10.0.13\\microsoft.net.sdk.webassembly.pack.10.0.13.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.23\\microsoft.netcore.app.runtime.mono.browser-wasm.8.0.23.nupkg.sha512"
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.32\\microsoft.netcore.app.runtime.mono.browser-wasm.8.0.32.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "EmploymentSearch.Client depends on Blazor.Bootstrap (>= 3.6.0) but Blazor.Bootstrap 3.6.0 was not found. Blazor.Bootstrap 4.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\EmploymentSearch.Client.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Lenovo\\source\\repos\\EmploymentSearch\\EmploymentSearch_UI\\EmploymentSearch.Client\\EmploymentSearch.Client.csproj",
+      "libraryId": "Blazor.Bootstrap",
+      "targetGraphs": [
+        "net8.0",
+        "net8.0/browser-wasm"
+      ]
+    }
+  ]
 }

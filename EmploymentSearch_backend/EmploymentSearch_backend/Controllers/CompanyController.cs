@@ -21,14 +21,14 @@ namespace APIs.Controllers
         public IActionResult GetAllCompanies()
         {
 
-            return Ok(_context.Company.OrderBy(c => c.companyName).ToList());
+            return Ok(_context.Company.OrderBy(c => c.CompanyName).ToList());
         }
 
         [HttpGet("{pageNumber}/{pageSize}")]
         public IActionResult GetCompanies(int pageNumber, int pageSize)
         {
             var companies = _context.Company
-                .OrderBy(c => c.companyName)
+                .OrderBy(c => c.CompanyName)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
@@ -50,24 +50,51 @@ namespace APIs.Controllers
 
         }
 
+        //[HttpGet]
+        //[Route("{searchTerm:alpha}")]
+        //public IActionResult SearchCompanies(string searchTerm)
+        //{
+        //var companies = _context.Company
+        //    .Where(c => c.CompanyName.Contains(searchTerm))
+        //    .ToList();
+        //return Ok(companies);
+
+        //[HttpGet("search")]
+        [HttpGet]
+        [Route("{searchTerm:alpha}")]
+        public IActionResult SearchCompanies(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+                return Ok(new List<Company>());
+
+            var results = _context.Company
+                .AsNoTracking()
+                .Where(c => c.CompanyName.Contains(searchTerm))
+                .OrderBy(c => c.CompanyName)
+                .ToList();
+
+            return Ok(results);
+        }
+
+
 
         [HttpPost]
         public IActionResult AddCompany(CompanyDto companyDto)
         {
-            int newCompanyKey = _context.Company.Max(c => c.company_key);
+            int newCompanyKey = _context.Company.Max(c => c.CompanyKey);
             newCompanyKey += 1;
             var newCompany = new Company()
             {
-                company_key = newCompanyKey,
-                companyName  = companyDto.companyName,
-                phone = companyDto.phone,
-                link = companyDto.link,
-                address1 = companyDto.address1,
-                address2 = companyDto.address2,
-                city = companyDto.city,
-                state = companyDto.state,
-                zip = companyDto.zip
-    };
+                CompanyKey = newCompanyKey,
+                CompanyName = companyDto.companyName,
+                Phone = companyDto.phone,
+                Link = companyDto.link,
+                Address1 = companyDto.address1,
+                Address2 = companyDto.address2,
+                City = companyDto.city,
+                State = companyDto.state,
+                Zip = companyDto.zip
+            };
 
             _context.Add(newCompany);
             _context.SaveChanges();
@@ -75,15 +102,15 @@ namespace APIs.Controllers
             // map domain model (newCompany) back to DTO
             var _companyDto = new CompanyDto
             {
-                company_key = newCompany.company_key,
-                companyName = newCompany.companyName,
-                phone = newCompany.phone,
-                link = newCompany.link,
-                address1 = newCompany.address1,
-                address2 = newCompany.address2,
-                city = newCompany.city,
-                state = newCompany.state,
-                zip = newCompany.zip
+                company_key = newCompany.CompanyKey,
+                companyName = newCompany.CompanyName,
+                phone = newCompany.Phone,
+                link = newCompany.Link,
+                address1 = newCompany.Address1,
+                address2 = newCompany.Address2,
+                city = newCompany.City,
+                state = newCompany.State,
+                zip = newCompany.Zip
             };
 
             return CreatedAtAction(nameof(GetCompanyById), new { id = _companyDto.company_key }, _companyDto); //Ok(newClient);
@@ -114,22 +141,22 @@ namespace APIs.Controllers
 
             // ToDo:  Check Dto for company_key = 0, then we have an Add/Post
 
-            Company existingCompany = _context.Company.FirstOrDefault(c => c.company_key == updatedCompanyDto.company_key);
+            Company existingCompany = _context.Company.FirstOrDefault(c => c.CompanyKey == updatedCompanyDto.company_key);
 
             // if cpmpany being updated not found, exit
             if (existingCompany == null)
                 return NotFound();
 
             //Move data from Dto to Entity record
-            existingCompany.company_key = updatedCompanyDto.company_key;
-            existingCompany.companyName = updatedCompanyDto.companyName;
-            existingCompany.phone = updatedCompanyDto.phone;
-            existingCompany.link = updatedCompanyDto.link;
-            existingCompany.address1 = updatedCompanyDto.address1;
-            existingCompany.address2 = updatedCompanyDto.address2;
-            existingCompany.city = updatedCompanyDto.city;
-            existingCompany.state = updatedCompanyDto.state;
-            existingCompany.zip = updatedCompanyDto.zip;
+            existingCompany.CompanyKey = updatedCompanyDto.company_key;
+            existingCompany.CompanyName = updatedCompanyDto.companyName;
+            existingCompany.Phone = updatedCompanyDto.phone;
+            existingCompany.Link = updatedCompanyDto.link;
+            existingCompany.Address1 = updatedCompanyDto.address1;
+            existingCompany.Address2 = updatedCompanyDto.address2;
+            existingCompany.City = updatedCompanyDto.city;
+            existingCompany.State = updatedCompanyDto.state;
+            existingCompany.Zip = updatedCompanyDto.zip;
 
             _context.SaveChanges();
             return NoContent();

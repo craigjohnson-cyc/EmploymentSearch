@@ -1,0 +1,96 @@
+﻿@* <h3>CompanyDisplayComponent</h3> *@
+@inject ICompanyService CompanyService
+
+@if (company == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="mb-3">Company Name</div>
+    <div class="mb-3">
+        <TextInput @bind-Value="@company.CompanyName" />
+    </div>
+
+    <div class="mb-3">Website</div>
+    <div class="mb-3">
+        <TextInput @bind-Value="@company.Link" />
+    </div>
+
+    <div class="mb-3">Phone</div>
+    <div class="mb-3">
+        <TextInput @bind-Value="@company.Phone" />
+    </div>
+
+    <div class="mb-3">Address</div>
+    <div class="mb-3">
+        <TextInput @bind-Value="@company.Address1" />
+    </div>
+    <div class="mb-3">
+        <TextInput @bind-Value="@company.Address2" />
+    </div>
+    <div class="mb-3">
+        <TextInput @bind-Value="@company.City" />
+    </div>
+    <div class="mb-3">
+        <TextInput @bind-Value="@company.State" />
+    </div>
+    <div class="mb-3">
+        <TextInput @bind-Value="@company.Zip" />
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label class="col-form-label">Employment Type</label>
+        </div>
+        <div class="col-6">
+            <InputText @bind-Value="company.Zip" class="form-control"></InputText>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <button class="btn btn-primary" @onclick="SaveCompany">Save Company Data</button>
+    </div>
+}
+
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    [SupplyParameterFromForm]
+    private Company? company { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        company = await CompanyService.GetCompany(this.id);
+        //await base.OnInitializedAsync();
+
+    }
+
+    private async Task SaveCompany()
+    {
+        if (company != null)
+        {
+            try
+            {
+                var response = await CompanyService.UpdateCompany(company);
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine("Company updated successfully");
+                }
+                else
+                {
+                    Console.WriteLine($"Update failed with status: {response.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating company: {ex.Message}");
+            }
+        }
+    }
+
+
+
+}

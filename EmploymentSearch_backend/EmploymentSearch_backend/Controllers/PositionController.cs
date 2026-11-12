@@ -1,9 +1,11 @@
-﻿using EmploymentSearch_DataModel.Models.Entities;
+﻿using APIs.Data;
 using EmploymentSearch_DataModel.Models.DTOs;
-using Microsoft.EntityFrameworkCore;
+using EmploymentSearch_DataModel.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System.Data;
 using System.Text.Json;
-using APIs.Data;
 
 
 namespace APIs.Controllers
@@ -43,7 +45,7 @@ namespace APIs.Controllers
         public IActionResult GetAllPositionsForCompany(string companyId)
         {
             int compId= Convert.ToInt32(companyId);
-            List<JobPosition> foundPositions = _context.Position.Where(i => i.company_key == compId).ToList();
+            List<JobPosition> foundPositions = _context.Position.Where(i => i.CompanyKey == compId).ToList();
 
             if (!foundPositions.Any())
                 return NotFound();
@@ -57,20 +59,20 @@ namespace APIs.Controllers
 
         public IActionResult AddPosition(PositionDto addPositionDto)
         {
-            int newPositionKey = _context.Position.Max(c => c.position_key);
+            int newPositionKey = _context.Position.Max(c => c.PositionKey);
             newPositionKey += 1;
             var newPosition = new JobPosition()
             {
-                position_key = newPositionKey,
-                company_key = addPositionDto.company_key,
-                position = addPositionDto.position,
-                note = addPositionDto.note,
-                rate = addPositionDto.rate,
-                link = addPositionDto.link,
-                applicationDate = addPositionDto.applicationDate,
-                lastContactDate = addPositionDto.lastContactDate,
+                PositionKey = newPositionKey,
+                CompanyKey = addPositionDto.company_key,
+                PositionTitle = addPositionDto.position,
+                Note = addPositionDto.note,
+                Rate = addPositionDto.rate,
+                Link = addPositionDto.link,
+                ApplicationDate = addPositionDto.applicationDate,
+                LastContactDate = addPositionDto.lastContactDate,
                 Status = addPositionDto.Status,
-                statusDate = addPositionDto.statusDate
+                StatusDate = addPositionDto.statusDate
             };
 
 
@@ -81,16 +83,16 @@ namespace APIs.Controllers
             // map domain model (newPosition) back to DTO
             var PositionDto = new PositionDto
             {
-                position_key = newPosition.position_key,
-                company_key = newPosition.company_key,
-                position = newPosition.position,
-                note = newPosition.note,
-                rate = newPosition.rate,
-                link = newPosition.link,
-                applicationDate = newPosition.applicationDate,
-                lastContactDate = newPosition.lastContactDate,
+                position_key = newPosition.PositionKey,
+                company_key = newPosition.CompanyKey,
+                position = newPosition.PositionTitle,
+                note = newPosition.Note,
+                rate = newPosition.Rate,
+                link = newPosition.Link,
+                applicationDate = (DateTime)newPosition.ApplicationDate,
+                lastContactDate = (DateTime)newPosition.LastContactDate,
                 Status = newPosition.Status,
-                statusDate = newPosition.statusDate
+                statusDate = (DateTime)newPosition.StatusDate
             };
 
             //return CreatedAtAction(nameof(GetPositionById), new { id = PositionDto.position_key }, PositionDto); //
@@ -123,23 +125,23 @@ namespace APIs.Controllers
             // ToDo:  Check Dto for Position_key = 0, then we have an Add/Post
 
             //Position updatedPosition = _context.Position.Find(updatedPositionDto.Position_key);
-            JobPosition existingPosition = _context.Position.FirstOrDefault(c => c.position_key == updatedPositionDto.position_key);
+            JobPosition existingPosition = _context.Position.FirstOrDefault(c => c.PositionKey == updatedPositionDto.position_key);
 
             // if Position being updated not found, exit
             if (existingPosition == null)
                 return NotFound();
 
             //Move data from Dto to Entity record
-            existingPosition.position_key = updatedPositionDto.position_key;
-            existingPosition.company_key = updatedPositionDto.company_key;
-            existingPosition.position = updatedPositionDto.position;
-            existingPosition.note = updatedPositionDto.note;
-            existingPosition.rate = updatedPositionDto.rate;
-            existingPosition.link = updatedPositionDto.link;
-            existingPosition.applicationDate = updatedPositionDto.applicationDate;
-            existingPosition.lastContactDate = updatedPositionDto.lastContactDate;
+            existingPosition.PositionKey = updatedPositionDto.position_key;
+            existingPosition.CompanyKey = updatedPositionDto.company_key;
+            existingPosition.PositionTitle = updatedPositionDto.position;
+            existingPosition.Note = updatedPositionDto.note;
+            existingPosition.Rate = updatedPositionDto.rate;
+            existingPosition.Link = updatedPositionDto.link;
+            existingPosition.ApplicationDate = updatedPositionDto.applicationDate;
+            existingPosition.LastContactDate = updatedPositionDto.lastContactDate;
             existingPosition.Status = updatedPositionDto.Status;
-            existingPosition.statusDate = updatedPositionDto.statusDate;
+            existingPosition.StatusDate = updatedPositionDto.statusDate;
 
             _context.SaveChanges();
             return NoContent();
@@ -160,6 +162,35 @@ namespace APIs.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        [Route("{id:int}/{status:alpha}")]
+        public async Task<IActionResult> UpdatePositionStatusAsync(int id, string status)
+        {
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_context.Database.GetConnectionString() ))
+                {
+                    await connection.OpenAsync();
+
+                    using (SqlCommand command = new SqlCommand("sp_UpdatePositionStatus", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@PositionId", id);
+                        command.Parameters.AddWithValue("@Status", status);
+
+                        await command.ExecuteNonQueryAsync();
+                    }
+                }
+
+                return Ok(new { message = $"Position {id} status updated to {status}" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
 
     }
 }

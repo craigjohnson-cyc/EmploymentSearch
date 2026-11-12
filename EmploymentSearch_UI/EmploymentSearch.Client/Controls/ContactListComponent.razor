@@ -1,0 +1,74 @@
+﻿@inject IContactService ContactService
+@inject NavigationManager Navigation
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="page-title">Contacts</h1>
+            <a href="/contacts/create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Add Contact
+            </a>
+        </div>
+
+        @if (ShowAlert)
+        {
+            <div class="alert alert-@AlertType alert-dismissible fade show" role="alert">
+                @AlertMessage
+                <button type="button" class="btn-close" @onclick="() => ShowAlert = false"></button>
+            </div>
+        }
+
+        <div class="card">
+            <div class="card-body p-0">
+                @if (Loading)
+                {
+                    <p class="text-center p-4">Loading...</p>
+                }
+                else if (Contacts == null || !Contacts.Any())
+                {
+                    <p class="text-center p-4 text-muted">No contacts found.</p>
+                }
+                else
+                {
+                    <ContactsGrid Contacts="Contacts" PositionKey="PositionKey" OnRefresh="LoadContacts" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int PositionKey { get; set; }
+
+    private List<Contact> Contacts = new();
+    private bool Loading = false;
+    private bool ShowAlert = false;
+    private string AlertMessage = "";
+    private string AlertType = "info";
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await LoadContacts();
+    }
+
+    private async Task LoadContacts()
+    {
+        Loading = true;
+        try
+        {
+            Contacts = await ContactService.GetAllContactsForPosition(PositionKey);
+        }
+        catch (Exception ex)
+        {
+            AlertType = "danger";
+            AlertMessage = $"Error loading contacts: {ex.Message}";
+            ShowAlert = true;
+        }
+        finally
+        {
+            Loading = false;
+        }
+    }
+
+}

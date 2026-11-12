@@ -17,17 +17,22 @@ namespace APIs.Controllers
         {
             _context = context;
         }
-        [HttpGet]
+        //[HttpGet]
         //public IActionResult GetAllContacts()
         //{
 
         //    return Ok(_context.Contact.ToList());
         //}
 
-        public IActionResult GetAllContactsForPosition(int id)
+        [HttpGet("Position/{positionId}")]
+        public async Task<ActionResult<List<Contact>>> GetAllContactsForPosition(int positionId)
         {
 
-            return Ok(_context.Contact.Where(o => o.position_key == id));
+            var contacts = await _context.Contact
+                .Where(c => c.PositionKey == positionId)
+                .ToListAsync();
+
+            return Ok(contacts);
         }
 
         //public IActionResult GetAllContactsForCompany(int id)
@@ -54,13 +59,13 @@ namespace APIs.Controllers
 
         public IActionResult AddContact(ContactDto addContactDto)
         {
-            int newContactKey = _context.Contact.Max(c => c.contact_key);
+            int newContactKey = _context.Contact.Max(c => c.ContactKey);
             newContactKey += 1;
             var newContact = new Contact()
             {
-                contact_key = newContactKey,
-                position_key = addContactDto.position_key,
-                contactDate = addContactDto.contactDate,
+                ContactKey = newContactKey,
+                PositionKey = addContactDto.position_key,
+                ContactDate = addContactDto.contactDate,
                 Description = addContactDto.Description
             };
 
@@ -70,9 +75,9 @@ namespace APIs.Controllers
             // map domain model (newContact) back to DTO
             var ContactDto = new ContactDto
             {
-                contact_key = newContact.contact_key,
-                position_key = newContact.position_key,
-                contactDate = newContact.contactDate,
+                contact_key = newContact.ContactKey,
+                position_key = newContact.PositionKey,
+                contactDate = newContact.ContactDate,
                 Description = newContact.Description
             };
 
@@ -105,16 +110,16 @@ namespace APIs.Controllers
             // ToDo:  Check Dto for Contact_key = 0, then we have an Add/Post
 
             //Contact updatedContact = _context.Contact.Find(updatedContactDto.Contact_key);
-            Contact existingContact = _context.Contact.FirstOrDefault(c => c.contact_key == updatedContactDto.contact_key);
+            Contact existingContact = _context.Contact.FirstOrDefault(c => c.ContactKey == updatedContactDto.contact_key);
 
             // if Contact being updated not found, exit
             if (existingContact == null)
                 return NotFound();
 
             //Move data from Dto to Entity record
-            existingContact.contact_key = updatedContactDto.contact_key;
-            existingContact.position_key = updatedContactDto.position_key;
-            existingContact.contactDate = updatedContactDto.contactDate;
+            existingContact.ContactKey = updatedContactDto.contact_key;
+            existingContact.PositionKey = updatedContactDto.position_key;
+            existingContact.ContactDate = updatedContactDto.contactDate;
             existingContact.Description = updatedContactDto.Description;
 
             _context.SaveChanges();
